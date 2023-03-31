@@ -135,6 +135,13 @@ window.onclick = function (event) {
 
 $("#logBtn").click(function () {
   document.cookie = `user=${$("#uname").val()}`;
-  // console.log($("#uname").val());
+  console.log(document.cookie);
   return false;
 });
+
+$(".close").click(function () {
+  $("#logBox").css("display", "none");
+});
+
+let userName = document.cookie.replace("user=", "");
+$("#hi").text(userName != "" ? `Раді знову бачити, ${userName}!` : "Вітаємо!");
