@@ -121,3 +121,20 @@ $("#stop").click(function () {
 $("#play").click(function () {
   $("#myVideo").trigger("play");
 });
+$("#logIn").click(function () {
+  $("#logBox").css("display", "block");
+});
+
+let modal = document.getElementById("logBox");
+
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+$("#logBtn").click(function () {
+  document.cookie = `user=${$("#uname").val()}`;
+  // console.log($("#uname").val());
+  return false;
+});
