@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VІНІΛ</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/896511d7d7.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      #load {
+        visibility: visible;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 9999;
+        background: url("images/record.gif") no-repeat center center
+          rgba(0, 0, 0, 0.75);
+      }
+    </style>
+    <script>
+      let $ = jQuery.noConflict(true);
+
+      $(document).ready(function () {
+        let offset = 200; // координата сдвига по оси Y
+        let duration = 300; // время выполнения
+        $("#totop").fadeOut(0);
+        $('a[href^="#"]:not([href="#demo"]').click(function () {
+          // если в href начинается с #, то обрабатываем клик
+          let scrollEl = $(this).attr("href"); // возьмем содержимое атрибута href
+          if ($(scrollEl).length != 0) {
+            // проверим существование элемента чтобы избежать ошибки
+            $("html, body").animate(
+              { scrollTop: $(scrollEl).offset().top },
+              500
+            ); // анимируем скроолинг к элементу scrollEl
+          }
+          return false; // выключаем стандартное действие
+        });
+
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > offset) {
+            $("#totop").css("opacity", "0.8"); // возвращаем прозрачность
+            $("#totop").fadeIn(duration); // элемент плавно исчезает
+          } else {
+            $("#totop").fadeOut(duration); // элемент плавно появляется
+          }
+        });
+      });
+    </script>
+  </head>
+  <body id="myPage">
+    <div id="load"></div>
+    <div id="contents">
+      <div class="container-fluid header p-0">
+        <!-- <div class="container"> -->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#team">Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#band">Band</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contacts">Contacts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="logIn" href="#contacts"
+                ><i class="fa-solid fa-user" style="color: #bbbbbc"></i
+              ></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="container-fluid header p-0">
+        <img class="vawe" src="./images/vawe.svg" alt="" />
+      </div>
+
+      <div id="demo" class="carousel slide" data-bs-ride="carousel">
+        <div class="overlay">
+          <h1 class="display-1">VІНІΛ</h1>
+        </div>
+        <!-- Indicators/dots -->
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#demo"
+            data-bs-slide-to="0"
+            class="active"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#demo"
+            data-bs-slide-to="1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#demo"
+            data-bs-slide-to="2"
+          ></button>
+        </div>
+
+        <!-- The slideshow/carousel -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="./images/vinylBG1.jpg"
+              alt="Los Angeles"
+              class="d-block"
+              style="width: 100%"
+            />
+            <div class="carousel-caption">
+              <h5 class="blockquote">Life</h5>
+              <!-- <p>We had such a great time in LA!</p> -->
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="./images/vinylBG2.jpg"
+              alt="Chicago"
+              class="d-block"
+              style="width: 100%"
+            />
+            <div class="carousel-caption">
+              <h5 class="blockquote">Hobbie</h5>
+              <!-- <p>Thank you, Chicago!</p> -->
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="./images/vinylBG3.jpg"
+              class="d-block"
+              style="width: 100%"
+            />
+            <div class="carousel-caption">
+              <h5 class="blockquote">Rock'N'Roll</h5>
+              <!-- <p>We love the Big Apple!</p> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Left and right controls/icons -->
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#demo"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#demo"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+      <div id="chatbot">
+        <form action="" id="form_chatbot">
+          <div id="answers"></div>
+          <input
+            type="text"
+            class="form-control"
+            id="question"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+          />
+
+          <button type="button" id="ok" class="btn btn-outline-secondary">
+            Надіслати
+          </button>
+        </form>
+      </div>
+      <br />
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-6 col-xl-8" id="info">
+            <h3 class="display-6">Про нас</h3>
+            <p>
+              Цей інтернет-магазин спеціалізується на продажі вінілових
+              платівок. Кожен екземпляр, що доступний для замовлення, є
+              унікальним і має свою історію. Магазин пропонує широкий вибір
+              музики різних жанрів, таких як рок, поп, джаз, електронна музика
+              та багато інших.
+            </p>
+            <p>
+              Інтернет-магазин забезпечує безпечну та зручну оплату через різні
+              платіжні системи. Доставка платівок здійснюється швидко та
+              безпечно до будь-якої адреси у світі. Магазин забезпечує швидку та
+              надійну доставку до будь-якої точки світу. Клієнти можуть вибрати
+              спосіб оплати, який найбільше їм підходить, включаючи кредитні
+              картки, PayPal та інші.
+            </p>
+            <p>
+              Цей інтернет-магазин є ідеальним місцем для кожного, хто цінує
+              вінілові платівки та хоче додати до своєї колекції нові раритетні
+              зразки. Тут ви знайдете все, що потрібно для створення чудового
+              настрою та насолоди від музики.
+            </p>
+          </div>
+          <div class="col-6 col-xl-4">
+            <!-- <h3 class="display-6">Вініл популярен?</h3> -->
+            <video id="myVideo" width="320" height="240" controls="false">
+              <source src="./images/vinylMagic.mp4" type="video/mp4" />
+            </video>
+            <div class="d-flex justify-content-center">
+              <!-- <button
+                type="button"
+                id="back"
+                class="btn btn-outline-dark col-2"
+              >
+                <i class="fa-solid fa-backward"></i>
+              </button> -->
+              <button
+                type="button"
+                id="stop"
+                class="btn btn-outline-dark col-2"
+              >
+                <i class="fa-solid fa-stop"></i>
+              </button>
+              <button
+                type="button"
+                id="play"
+                class="btn btn-outline-dark col-2"
+              >
+                <i class="fa-solid fa-play"></i>
+              </button>
+              <!-- <button type="button" id="for" class="btn btn-outline-dark col-2">
+                <i class="fa-solid fa-forward"></i>
+              </button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#myPage" title="To Top" id="totop">
+      <i class="fa-solid fa-arrow-up"></i>
+    </a>
+    <script src="./chatbot.js "></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
