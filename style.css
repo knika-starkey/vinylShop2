@@ -25,7 +25,7 @@
     text-align: center;
   }
   #chatbot{
-    
+    z-index: 1051 !important;
     position: fixed;
     bottom: 20px;
     width: 260px;
@@ -95,6 +95,7 @@
 #myVideo{
   width:100%;
   height:  calc(100vh * 0.27);
+  
 }
 
 video::-webkit-media-controls {
@@ -231,3 +232,13 @@ span.psw {
 #logIn{
   padding-right: 20px;
 }
+.btn-space {
+  margin-right: 5px;
+}
+.card{
+  margin-bottom: 20px;
+  }
+  #vinyls{
+    padding: 20px;
+    
+  }

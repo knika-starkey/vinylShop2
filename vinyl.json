@@ -1,0 +1,82 @@
+[
+    {
+      "id": 1,
+      "category": "Rock",
+      "price": "$84.99",
+      "stocked": true,
+      "name": "All Things Must Pass",
+      "author": "George Harrison",
+      "imageCover": "https://upload.wikimedia.org/wikipedia/ru/b/b8/George-harrison-all-things-must-pass.png",
+      "count": 1
+    },
+    {
+      "id": 2,
+      "category": "Rock",
+      "price": "$56.02",
+      "stocked": true,
+      "name": "Abbey Road",
+      "author": "The Beatles",
+      "imageCover": "https://upload.wikimedia.org/wikipedia/ru/7/7f/The_Beatles_-_Abbey_Road.jpg",
+      "count": 1
+    },
+    {
+      "id": 3,
+      "category": "Hard rock",
+      "price": "$18.99",
+      "stocked": false,
+      "name": "Never Mind the Bollocks",
+      "author": "Sex Pistols",
+      "imageCover": "https://upload.wikimedia.org/wikipedia/ru/1/1d/Sex_Pistols_Nevermind.jpg",
+      "count": 1
+    },
+    {
+      "id": 4,
+      "category": "Pop",
+      "price": "$24.98 ",
+      "stocked": true,
+      "name": "Voulez-Vous",
+      "author": "ABBA",
+      "imageCover": "https://m.media-amazon.com/images/I/51tFZdH097L.jpg",
+      "count": 1
+    },
+    {
+      "id": 5,
+      "category": "Pop Rock",
+      "price": "$39.03",
+      "stocked": false,
+      "name": "The Miracle",
+      "author": "Queen",
+      "imageCover": "https://vinylfever.com/wp-content/uploads/2020/11/Queen_The_Miracle_Vinyl_Fever.jpg",
+      "count": 1
+    },
+    {
+      "id": 6,
+      "category": "Soundtrack",
+      "price": "$10",
+      "stocked": true,
+      "name": "Зброя Пролетаріату",
+      "author": "Жадан і Собаки",
+      "imageCover": "https://vinyl.com.ua/files/images/items/212/212333z4ff72c9a.jpg",
+      "count": 1
+    },
+    {
+      "id": 7,
+      "category": "Pop rock",
+      "price": "$32.51",
+      "stocked": true,
+      "name": "Goodbye Yellow Brick Road",
+      "author": "Elton John",
+      "imageCover": "https://lastfm.freetls.fastly.net/i/u/500x500/4d4e915760f54d96cd76c9919ff22e65.jpg",
+      "count": 1
+    },
+    {
+      "id":8,
+      "category": "Progressive rock",
+      "price": "$26.98",
+      "stocked": true,
+      "name": "The Dark Side of the Moon",
+      "author": "Pink Floyd",
+      "imageCover": "https://plativky.com.ua/wp-content/uploads/2021/09/Pink-Floyd-%E2%80%93-The-Dark-Side-Of-The-Moon-Vinyl.jpg",
+      "count": 1
+    }
+  ]
