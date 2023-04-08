@@ -32,7 +32,8 @@ function insertVinyls(vinyls) {
   for (let i = 0; i < vinyls.length; i++) {
     str += `<div class="col-6 col-sm-4 col-lg-2 col-md-3 item_box">`;
     str += `<div class="card">`;
-    str += `<img class="card-img-top" src="${vinyls[i].imageCover}" alt="Card image cap">`;
+    str += `<img class="card-img-top" src="./images/lazy_load_image.gif"
+    data-src="${vinyls[i].imageCover}" alt="Card image cap">`;
     str += `<div class="card-body">`;
     str += `<h5 class="card-title item_title">${vinyls[i].name}</h5>`;
     str += `<p class="card-text">${vinyls[i].author}</p>`;
@@ -85,3 +86,29 @@ loadVinyls();
 //     .querySelector('[id^="add_item"]')
 //     .addEventListener("click", addToCart);
 // }
+
+function isVisible(elem) {
+  let coords = elem.getBoundingClientRect();
+  let windowHeight = document.documentElement.clientHeight;
+  let isTop = coords.top > 0 && coords.top < windowHeight;
+  let isBot = coords.bottom < windowHeight && coords.bottom > 0;
+  return isTop || isBot;
+}
+
+function showVisible() {
+  for (let img of document.querySelectorAll("img")) {
+    let realSrc = img.dataset.src;
+    if (!realSrc) continue;
+
+    if (isVisible(img)) {
+      realSrc += "?nocache=" + Math.random();
+
+      img.src = realSrc;
+
+      img.dataset.src = "";
+    }
+  }
+}
+
+window.addEventListener("scroll", showVisible);
+showVisible();

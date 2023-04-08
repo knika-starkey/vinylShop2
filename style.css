@@ -6,6 +6,10 @@
     opacity: 0.7;
     z-index: 2;
   }
+  .carousel-control{
+    position: relative;
+    z-index: 1052 !important;
+  }
   .carousel {
     top: 0px;
     position: relative;
@@ -241,4 +245,16 @@ span.psw {
   #vinyls{
     padding: 20px;
     
+  }
+
+  .figure{
+    background:#ddd;
+    width:200px;
+    margin: 0 auto;
+  }
+  .figure img{
+    width:100%;
+  }
+  .hide{
+    opacity:0;
   }
