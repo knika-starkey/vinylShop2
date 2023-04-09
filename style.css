@@ -1,3 +1,10 @@
+body {
+  background-image: url("./images/back.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
 .vawe {
     left: 0px;
     width: 100%;
@@ -89,14 +96,17 @@
   box-sizing: border-box;
   opacity: 0;
 }
-/* #info{
-  padding: 10px;
-  border-radius: 10px;
-  background-color:#ececec;
-  color:#000;
-} */
+#info{
+  border-radius: 0px 80px 80px 0px;
+  /* border-radius: 50% 20% / 10% 40%; */
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #ececec;
+  
+}
 
 #myVideo{
+  
   width:100%;
   height:  calc(100vh * 0.27);
   
