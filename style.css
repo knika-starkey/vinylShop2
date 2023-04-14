@@ -175,7 +175,7 @@ span.psw {
 .modal {
   display: none; /* Hidden by default */
   position: absolute; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 1051 !important;
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -268,3 +268,28 @@ span.psw {
   .hide{
     opacity:0;
   }
+  .gallery{
+    position: relative;
+    border-radius: 10px;
+    height: 250px;
+    overflow: hidden;
+  }
+  .pic {
+  scale: 1;
+  width: 150%;
+  height: auto;
+  transition: transform .7s ease-in-out;
+  position: absolute;
+  overflow: hidden;
+  top: -9999px;
+  left: -9999px;
+  right: -9999px;
+  bottom: -9999px;
+  margin: auto;
+  
+}
+.pic:hover {
+  transform: scale(1.2) rotate(15deg);
+  /* transform: rotate(30deg); */
+}
+
