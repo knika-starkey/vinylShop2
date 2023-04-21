@@ -16,6 +16,10 @@
       src="https://kit.fontawesome.com/896511d7d7.js"
       crossorigin="anonymous"
     ></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Russo+One"
+      rel="stylesheet"
+    />
     <style>
       #load {
         visibility: visible;
@@ -221,7 +225,38 @@
         <div class="row">
           <div class="col-12 col-xl-8 col-md-6" id="info">
             <br />
-            <h3 class="display-6">Про нас</h3>
+            <svg width="40%" height="45">
+              <g transform="translate(10,32)">
+                <text
+                  id="TextElement"
+                  x="-200"
+                  y="0"
+                  style="
+                    font-family: Verdana;
+                    font-size: 32;
+                    visibility: hidden;
+                    fill: #ececec;
+                  "
+                >
+                  Про нас
+                  <set
+                    attributeName="visibility"
+                    attributeType="CSS"
+                    to="visible"
+                    begin="2s"
+                    dur="5s"
+                    fill="freeze"
+                  />
+                  <animateMotion
+                    path="M 0 0 L 200 0"
+                    begin="1s"
+                    dur="2s"
+                    fill="freeze"
+                  />
+                </text>
+              </g>
+              Sorry, your browser does not support inline SVG.
+            </svg>
             <p>
               Цей інтернет-магазин спеціалізується на продажі вінілових
               платівок. Кожен екземпляр, що доступний для замовлення, є
@@ -250,7 +285,7 @@
               <h5 class="text-center font-weight-ligh" id="hi"></h5>
               <!-- <h3 class="display-6">Вініл популярен?</h3> -->
               <video id="myVideo" width="320" height="240" controls="false">
-                <source src="./images/vinylMagic.mp4" type="video/mp4" />
+                <source src="./images/vinylVid.mp4" type="video/mp4" />
               </video>
               <div class="d-flex justify-content-center">
                 <!-- <button

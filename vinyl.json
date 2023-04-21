@@ -2,7 +2,7 @@
     {
       "id": 1,
       "category": "Rock",
-      "price": "$84.99",
+      "price": "84.99",
       "stocked": true,
       "name": "All Things Must Pass",
       "author": "George Harrison",
@@ -12,7 +12,7 @@
     {
       "id": 2,
       "category": "Rock",
-      "price": "$56.02",
+      "price": "56.02",
       "stocked": true,
       "name": "Abbey Road",
       "author": "The Beatles",
@@ -22,7 +22,7 @@
     {
       "id": 3,
       "category": "Hard rock",
-      "price": "$18.99",
+      "price": "18.99",
       "stocked": false,
       "name": "Never Mind the Bollocks",
       "author": "Sex Pistols",
@@ -32,7 +32,7 @@
     {
       "id": 4,
       "category": "Pop",
-      "price": "$24.98 ",
+      "price": "24.98 ",
       "stocked": true,
       "name": "Voulez-Vous",
       "author": "ABBA",
@@ -42,7 +42,7 @@
     {
       "id": 5,
       "category": "Pop Rock",
-      "price": "$39.03",
+      "price": "39.03",
       "stocked": false,
       "name": "The Miracle",
       "author": "Queen",
@@ -52,7 +52,7 @@
     {
       "id": 6,
       "category": "Soundtrack",
-      "price": "$10",
+      "price": "10",
       "stocked": true,
       "name": "Зброя Пролетаріату",
       "author": "Жадан і Собаки",
@@ -62,7 +62,7 @@
     {
       "id": 7,
       "category": "Pop rock",
-      "price": "$32.51",
+      "price": "32.51",
       "stocked": true,
       "name": "Goodbye Yellow Brick Road",
       "author": "Elton John",
@@ -72,7 +72,7 @@
     {
       "id":8,
       "category": "Progressive rock",
-      "price": "$26.98",
+      "price": "26.98",
       "stocked": true,
       "name": "The Dark Side of the Moon",
       "author": "Pink Floyd",
