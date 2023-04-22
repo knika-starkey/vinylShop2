@@ -10,6 +10,7 @@ document.onreadystatechange = function () {
     }, 2500);
   }
 };
+let itemBox = [];
 
 function loadVinyls() {
   let xhttp = new XMLHttpRequest();
@@ -33,11 +34,11 @@ function insertVinyls(vinyls) {
     str += `<div class="col-6 col-sm-4 col-lg-2 col-md-3">`;
     str += `<div class="panel panel-default text-center item_box">`;
     str += `<div class="panel-heading"><img class="card-img-top" src="./images/lazy_load_image.gif"
-    data-src="${vinyls[i].imageCover}" alt="Card image cap">`;
-    str += `<h3 class="item_title lead">${vinyls[i].name}</h3>`;
-    str += `<p class="card-text ">${vinyls[i].author}</p></div>`;
-    str += `<div class="panel-body">`;
+    data-src="${vinyls[i].imageCover}" alt="Card image cap"></div>`;
 
+    str += `<div class="panel-body">`;
+    str += `<h3 class="item_title lead">${vinyls[i].name}</h3>`;
+    str += `<p class="card-text ">${vinyls[i].author}</p>`;
     str += `<div class="panel-footer">`;
     // str += `<h5 class="card-title item_title">${vinyls[i].name}</h5>`;
     str += `<h6><span class="item_price">${vinyls[i].price}</span> $</h6>`;
@@ -62,6 +63,12 @@ function insertVinyls(vinyls) {
   </button>
 </div></div></div>`;
   document.getElementById("vinyls").innerHTML = str;
+  itemBox = document.querySelectorAll(".item_box");
+  console.log(itemBox);
+  for (let i = 0; i < itemBox.length; i++) {
+    itemBox[i].querySelector(".add_item").addEventListener("click", addToCart);
+    document.getElementById("clear_cart").addEventListener("click", clearCart);
+  }
 }
 loadVinyls();
 
@@ -91,15 +98,15 @@ function showVisible() {
 window.addEventListener("scroll", showVisible);
 showVisible();
 
-let itemBox = document.querySelectorAll(".item_box"); // блок каждого товара
+// блок каждого товара
 
 // Записываем данные в LocalStorage
 function setCartData(o) {
-  localStorage.setItem("cart", JSON.stringify(o));
+  localStorage.setItem("panel", JSON.stringify(o));
 }
 // Получаем данные из LocalStorage
 function getCartData() {
-  return JSON.parse(localStorage.getItem("cart"));
+  return JSON.parse(localStorage.getItem("panel"));
 }
 function countAm() {
   let count = 0;
@@ -126,11 +133,11 @@ function addToCart(e) {
   let button = e.target;
   button.disabled = true; // блокируем кнопку на время операции с корзиной
   let cartData = getCartData() || {}; // получаем данные корзины или создаём новый объект, если данных еще нет
-  let parentBox = button.parentNode; // родительский элемент кнопки "Добавить в корзину";
+  let parentBox = button.parentNode.parentNode; // родительский элемент кнопки "Добавить в корзину";
   let itemId = button.getAttribute("data-id"); // ID товара
   let itemTitle = parentBox.querySelector(".item_title").innerHTML; // название товара
   let itemPrice = parentBox.querySelector(".item_price").innerHTML; // стоимость товара
-  console.log(cartData);
+  console.log(parentBox.querySelector(".item_title").innerHTML);
   if (cartData.hasOwnProperty(itemId)) {
     cartData[itemId][2] += 1;
   } else {
@@ -141,10 +148,10 @@ function addToCart(e) {
   button.disabled = false;
 }
 function clearCart(e) {
-  localStorage.removeItem("cart");
+  localStorage.removeItem("panel");
 }
-for (let i = 0; i < itemBox.length; i++) {
-  itemBox[i].querySelector(".add_item").addEventListener("click", addToCart);
-  document.getElementById("clear_cart").addEventListener("click", clearCart);
-}
-console.log(itemBox);
+// for (let i = 0; i < itemBox.length; i++) {
+//   itemBox[i].querySelector(".add_item").addEventListener("click", addToCart);
+//   document.getElementById("clear_cart").addEventListener("click", clearCart);
+// }
+// console.log(itemBox);
