@@ -53,21 +53,12 @@ function insertVinyls(vinyls) {
     str += `</div>`;
   }
 
-  str += `</div><div class="text-center">
-  <button id="checkout" class="btn btn-lg btn-danger">
-    Оформить заказ
-  </button>
-  &nbsp;
-  <button id="clear_cart" class="btn btn-lg btn-danger">
-    Очистить корзину
-  </button>
-</div></div></div>`;
+  str += `</div></div></div>`;
   document.getElementById("vinyls").innerHTML = str;
   itemBox = document.querySelectorAll(".item_box");
   console.log(itemBox);
   for (let i = 0; i < itemBox.length; i++) {
     itemBox[i].querySelector(".add_item").addEventListener("click", addToCart);
-    document.getElementById("clear_cart").addEventListener("click", clearCart);
   }
 }
 loadVinyls();
@@ -108,6 +99,31 @@ function setCartData(o) {
 function getCartData() {
   return JSON.parse(localStorage.getItem("panel"));
 }
+
+// Добавляем товар в корзину
+function addToCart(e) {
+  let button = e.target;
+  button.disabled = true; // блокируем кнопку на время операции с корзиной
+  let cartData = getCartData() || {}; // получаем данные корзины или создаём новый объект, если данных еще нет
+  let parentBox = button.parentNode.parentNode; // родительский элемент кнопки "Добавить в корзину";
+  let itemId = button.getAttribute("data-id"); // ID товара
+  let itemTitle = parentBox.querySelector(".item_title").innerHTML; // название товара
+  let itemPrice = parentBox.querySelector(".item_price").innerHTML; // стоимость товара
+  console.log(parentBox.querySelector(".item_title").innerHTML);
+  if (cartData.hasOwnProperty(itemId)) {
+    cartData[itemId][2] += 1;
+  } else {
+    cartData[itemId] = [itemTitle, itemPrice, 1];
+  }
+
+  setCartData(cartData);
+  button.disabled = false;
+}
+function clearCart() {
+  localStorage.removeItem("panel");
+  return false;
+}
+let cartCont = document.getElementById("cart_content");
 function countAm() {
   let count = 0;
   if (getCartData()) {
@@ -128,30 +144,28 @@ function countPr() {
   }
   return count;
 }
-// Добавляем товар в корзину
-function addToCart(e) {
-  let button = e.target;
-  button.disabled = true; // блокируем кнопку на время операции с корзиной
-  let cartData = getCartData() || {}; // получаем данные корзины или создаём новый объект, если данных еще нет
-  let parentBox = button.parentNode.parentNode; // родительский элемент кнопки "Добавить в корзину";
-  let itemId = button.getAttribute("data-id"); // ID товара
-  let itemTitle = parentBox.querySelector(".item_title").innerHTML; // название товара
-  let itemPrice = parentBox.querySelector(".item_price").innerHTML; // стоимость товара
-  console.log(parentBox.querySelector(".item_title").innerHTML);
-  if (cartData.hasOwnProperty(itemId)) {
-    cartData[itemId][2] += 1;
-  } else {
-    cartData[itemId] = [itemTitle, itemPrice, 1];
-  }
 
-  setCartData(cartData);
-  button.disabled = false;
+function openCart() {
+  let cartData = getCartData(); // вытаскиваем все данные корзины
+  console.log(JSON.stringify(cartData));
+  if (cartData !== null) {
+    let cardTable = "";
+    cardTable =
+      '<table class="highlight shopping_list"><tr class="flow-text"><th>Назва</th><th>Ціна</th><th>Кількість</th></tr>';
+    for (let items in cartData) {
+      cardTable += "<tr>";
+      for (let i = 0; i < cartData[items].length; i++) {
+        cardTable += "<td>" + cartData[items][i] + "</td>";
+      }
+
+      cardTable += `</tr>`;
+    }
+    cardTable += `<tr style="font-weight:bold"><td>Сумарно:</td><td>${countPr()}</td><td>${countAm()}</td></tr>`;
+    cardTable += `<table>`;
+    cartCont.innerHTML = cardTable;
+    document.getElementById("clear_cart").addEventListener("click", clearCart);
+  } else {
+    cartCont.innerHTML = "В кошику пусто!";
+  }
 }
-function clearCart(e) {
-  localStorage.removeItem("panel");
-}
-// for (let i = 0; i < itemBox.length; i++) {
-//   itemBox[i].querySelector(".add_item").addEventListener("click", addToCart);
-//   document.getElementById("clear_cart").addEventListener("click", clearCart);
-// }
-// console.log(itemBox);
+openCart();

@@ -100,7 +100,7 @@
               </div>
             </div>
             <div class="col-1">
-              <a class="nav-link text-end" id="busket" href="">
+              <a class="nav-link text-end" id="busket" href="#contacts">
                 <i
                   class="fa-solid fa-cart-shopping fa-xl"
                   style="color: #bbbbbc"
@@ -387,6 +387,19 @@
               Login
             </button>
           </div>
+        </form>
+      </div>
+      <div id="basketBox" class="modal">
+        <form
+          class="modal-content animate"
+          action="/action_page.php"
+          method="post"
+        >
+          <div class="imgcontainer">
+            <span class="close" title="Close Modal">&times;</span>
+          </div>
+
+          <div id="cart_content"></div>
         </form>
       </div>
       <a href="#myPage" title="To Top" id="totop">

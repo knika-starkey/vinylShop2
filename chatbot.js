@@ -141,7 +141,20 @@ $("#logBtn").click(function () {
 
 $(".close").click(function () {
   $("#logBox").css("display", "none");
+  $("#basketBox").css("display", "none");
 });
 
 let userName = document.cookie.replace("user=", "");
 $("#hi").text(userName != "" ? `Раді знову бачити, ${userName}!` : "Вітаємо!");
+
+$("#busket").click(function () {
+  $("#basketBox").css("display", "block");
+});
+
+let modalShop = document.getElementById("basketBox");
+
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};

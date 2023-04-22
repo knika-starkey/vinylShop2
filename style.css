@@ -342,3 +342,14 @@ span.psw {
 .panel-heading img {
   /* width:150px; */
 }
+
+#cart_content {
+  margin-top: 10px;
+  padding: 5px;
+  
+}
+.shopping_list {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+}
