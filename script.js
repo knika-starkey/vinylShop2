@@ -142,7 +142,35 @@ function countPr() {
       count += cartData[key][1] * cartData[key][2];
     }
   }
-  return count;
+  return Math.round(count * 100) / 100;
+}
+function removeItem(minus) {
+  let cartData = getCartData();
+  if (cartData) {
+    let item = minus.getAttribute("data-id");
+    cartData[item][2] = cartData[item][2] - 1;
+    if (cartData[item][2] < 1) {
+      delete cartData[item];
+    }
+    setCartData(cartData);
+    let length = Object.getOwnPropertyNames(cartData);
+    if (length == 0) clearCart();
+    openCart();
+  }
+}
+function addItem(plus) {
+  let cartData = getCartData();
+  if (cartData) {
+    let item = plus.getAttribute("data-id");
+    cartData[item][2] = cartData[item][2] + 1;
+    if (cartData[item][2] < 1) {
+      delete cartData[item];
+    }
+    setCartData(cartData);
+    let length = Object.getOwnPropertyNames(cartData);
+    if (length == 0) clearCart();
+    openCart();
+  }
 }
 
 function openCart() {
@@ -151,16 +179,17 @@ function openCart() {
   if (cartData !== null) {
     let cardTable = "";
     cardTable =
-      '<table class="highlight shopping_list"><tr class="flow-text"><th>Назва</th><th>Ціна</th><th>Кількість</th></tr>';
+      '<table class="highlight shopping_list"><tr class="flow-text"><th>Назва</th><th>Ціна</th><th>Кількість</th><th>Видалити</th><th>Додати</th></tr>';
     for (let items in cartData) {
       cardTable += "<tr>";
       for (let i = 0; i < cartData[items].length; i++) {
         cardTable += "<td>" + cartData[items][i] + "</td>";
       }
-
+      cardTable += `<td><span class="minus text-danger" onclick="removeItem(this)" data-id="${items}">-</span></td>`;
+      cardTable += `<td><span class="minus text-danger" onclick="addItem(this)" data-id="${items}">+</span></td>`;
       cardTable += `</tr>`;
     }
-    cardTable += `<tr style="font-weight:bold"><td>Сумарно:</td><td>${countPr()}</td><td>${countAm()}</td></tr>`;
+    cardTable += `<tr style="font-weight:bold"><td>Сумарно:</td><td>${countPr()}$</td><td>${countAm()}</td></tr>`;
     cardTable += `<table>`;
     cartCont.innerHTML = cardTable;
     document.getElementById("clear_cart").addEventListener("click", clearCart);
