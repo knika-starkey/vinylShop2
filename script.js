@@ -168,4 +168,4 @@ function openCart() {
     cartCont.innerHTML = "В кошику пусто!";
   }
 }
-openCart();
+document.getElementById("busket").addEventListener("click", openCart);
