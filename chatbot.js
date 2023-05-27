@@ -138,7 +138,6 @@ $("#logBtn").click(function () {
   console.log(document.cookie);
   return false;
 });
-
 $(".close").click(function () {
   $("#logBox").css("display", "none");
   $("#basketBox").css("display", "none");

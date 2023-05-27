@@ -190,9 +190,8 @@ function openCart() {
       cardTable += `</tr>`;
     }
     cardTable += `<tr style="font-weight:bold"><td>Сумарно:</td><td>${countPr()}$</td><td>${countAm()}</td></tr>`;
-    cardTable += `<table>`;
+    cardTable += `</table>`;
     cartCont.innerHTML = cardTable;
-    document.getElementById("clear_cart").addEventListener("click", clearCart);
   } else {
     cartCont.innerHTML = "В кошику пусто!";
   }
